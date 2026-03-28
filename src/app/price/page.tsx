@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { treatments } from '@/lib/menu-data';
-import { PriceTable } from '@/components/ui/PriceTable';
 import { Breadcrumb } from '@/components/common/Breadcrumb';
 
 const tabs = [
@@ -52,14 +51,43 @@ export default function PricePage() {
           ))}
         </div>
 
-        {/* 料金テーブル */}
-        <div className="space-y-10">
-          {filtered.map((t) => (
-            <div key={t.slug}>
-              <h2 className="font-semibold text-text-main mb-3">{t.name}</h2>
-              <PriceTable items={t.pricing} />
-            </div>
-          ))}
+        {/* 統一料金テーブル */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b-2 border-primary">
+                <th className="py-3 text-left font-semibold text-text-main">施術名</th>
+                <th className="py-3 text-left font-semibold text-text-main pl-4">メニュー</th>
+                <th className="py-3 text-right font-semibold text-text-main w-36">料金（税込）</th>
+                <th className="py-3 text-left font-semibold text-text-main pl-4">備考</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((t) =>
+                t.pricing.map((item, i) => (
+                  <tr
+                    key={`${t.slug}-${i}`}
+                    className="border-b border-border-main"
+                  >
+                    {/* 施術名: 各施術の最初の行のみ表示、rowSpanで結合 */}
+                    {i === 0 && (
+                      <td
+                        className="py-3 text-text-main font-medium align-top pr-4"
+                        rowSpan={t.pricing.length}
+                      >
+                        {t.name}
+                      </td>
+                    )}
+                    <td className="py-3 text-text-main pl-4">{item.name}</td>
+                    <td className="py-3 text-right text-primary font-medium whitespace-nowrap">
+                      {item.price}
+                    </td>
+                    <td className="py-3 text-text-sub text-xs pl-4">{item.note || ''}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
         </div>
 
         <p className="text-xs text-text-sub mt-8 leading-relaxed">
