@@ -64,17 +64,17 @@ export function Header() {
         {/* Main header */}
         <div className="mx-auto max-w-[1280px] px-4 flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col">
-            <span className="font-serif text-primary text-lg lg:text-xl font-semibold leading-tight">
+          <Link href="/" className="flex flex-col flex-shrink-0">
+            <span className="font-serif text-primary text-lg lg:text-xl font-semibold leading-tight whitespace-nowrap">
               {siteConfig.clinicName}
             </span>
-            <span className="font-serif text-primary text-[10px] lg:text-xs tracking-wider leading-tight">
+            <span className="font-serif text-primary text-[10px] lg:text-xs tracking-wider leading-tight whitespace-nowrap">
               {siteConfig.clinicNameEn}
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="メインナビゲーション">
+          <nav className="hidden lg:flex items-center" aria-label="メインナビゲーション">
             {navigation.map((item) => (
               <div
                 key={item.label}
@@ -87,7 +87,7 @@ export function Header() {
                   <>
                     <Link
                       href={item.href}
-                      className="px-3 py-2 text-sm text-text-main hover:text-primary transition-colors"
+                      className="px-2 xl:px-3 py-2 text-xs xl:text-sm whitespace-nowrap text-text-main hover:text-primary transition-colors"
                       aria-haspopup="true"
                       aria-expanded={subMenu.isOpen}
                     >
@@ -98,7 +98,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="px-3 py-2 text-sm text-text-main hover:text-primary transition-colors"
+                    className="px-2 xl:px-3 py-2 text-xs xl:text-sm whitespace-nowrap text-text-main hover:text-primary transition-colors"
                   >
                     {item.label}
                   </Link>
