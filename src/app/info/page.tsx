@@ -23,9 +23,9 @@ export default function InfoPage() {
       <div className="mx-auto max-w-[1280px] px-4 py-12 lg:py-16">
         {/* 診療時間 */}
         <section className="mb-12">
-          <h2 className="font-serif text-xl font-semibold text-text-main mb-6">診療時間</h2>
+          <h2 className="font-serif text-xl font-semibold text-text-main mb-6 max-w-3xl mx-auto">診療時間</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm max-w-2xl">
+            <table className="w-full text-sm max-w-2xl mx-auto">
               <thead>
                 <tr className="border-b-2 border-primary">
                   {siteConfig.hours.map((h) => (
@@ -53,15 +53,15 @@ export default function InfoPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-text-sub mt-3">
+          <p className="text-xs text-text-sub mt-3 max-w-2xl mx-auto">
             休診日：{siteConfig.closedDays}
           </p>
         </section>
 
         {/* ご予約方法 */}
         <section className="mb-12 border-t border-border-main pt-12">
-          <h2 className="font-serif text-xl font-semibold text-text-main mb-6">ご予約方法</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl">
+          <h2 className="font-serif text-xl font-semibold text-text-main mb-6 max-w-3xl mx-auto">ご予約方法</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             <div className="p-6 bg-bg-secondary rounded-sm text-center">
               <h3 className="font-semibold text-text-main mb-2">お電話</h3>
               <p className="text-sm text-text-sub mb-3">一般診療</p>
@@ -104,8 +104,8 @@ export default function InfoPage() {
 
         {/* お支払い方法 */}
         <section className="mb-12 border-t border-border-main pt-12">
-          <h2 className="font-serif text-xl font-semibold text-text-main mb-6">お支払い方法</h2>
-          <div className="max-w-3xl">
+          <h2 className="font-serif text-xl font-semibold text-text-main mb-6 max-w-3xl mx-auto">お支払い方法</h2>
+          <div className="max-w-3xl mx-auto">
             <ul className="space-y-2">
               {[
                 '現金',
@@ -125,10 +125,10 @@ export default function InfoPage() {
 
         {/* 持ち物 */}
         <section className="mb-12 border-t border-border-main pt-12">
-          <h2 className="font-serif text-xl font-semibold text-text-main mb-6">
+          <h2 className="font-serif text-xl font-semibold text-text-main mb-6 max-w-3xl mx-auto">
             ご来院時のお持ち物
           </h2>
-          <ul className="space-y-2 max-w-3xl">
+          <ul className="space-y-2 max-w-3xl mx-auto">
             {[
               '身分証明書（初診の方）',
               '保険証（一部保険適用の施術の場合）',
